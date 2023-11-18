@@ -1,0 +1,16 @@
+pipeline{
+    agent any 
+    options{
+        buildDiscarder(logRotator(numToKeepStr: '1'))
+    }
+    parameters{
+        string(name:'stringName', defaultValue:'this is string', description:'this is string example')
+    }
+    stages{
+        stage('stringStage'){
+            steps{
+                sh([script: 'echo $stringName'])
+            }
+        }
+    }
+}

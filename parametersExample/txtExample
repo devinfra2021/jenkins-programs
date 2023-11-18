@@ -1,0 +1,18 @@
+pipeline{
+    agent any
+    options{
+        buildDiscarder(logRotator(numToKeepStr: '1'))
+    }
+    parameters{
+        text(name:'txtExample', defaultValue:'this is text box', description:'add your text here')
+    }
+    stages{
+        stage('textExampleStage'){
+            steps{
+                sh '''
+                echo $txtExample
+                '''
+            }
+        }
+    }
+}

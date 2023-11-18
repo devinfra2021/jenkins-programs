@@ -3,6 +3,9 @@ pipeline{
     parameters{
         string(name:'myName', defaultValue:'this is default value', description:'this is string variable')
     }
+    options{
+        timeout(time: 1, unit: 'SECONDS')
+    }
     stages{
         stage('Stage 1'){
             steps{

@@ -1,0 +1,18 @@
+pipeline{
+    agent any
+    options{
+        buildDiscarder(logRotator(numToKeepStr: '1'))
+    }
+    parameters{
+        choice(name:'dayOfWeek', choices:['Monday','Tuesday','Wednesday','Thursday','Friday'], description:'select as your convenient')
+    }
+    stages{
+        stage('choiceParameterExample'){
+            steps{
+            sh '''
+            echo $dayOfWeek
+            '''
+            }
+        }
+    }
+}

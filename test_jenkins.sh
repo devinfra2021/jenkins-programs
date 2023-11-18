@@ -4,7 +4,7 @@ declare JENKINS_PORT
 declare JENKINS_URL
 
 export JENKINS_PORT=8080
-export JENKINS_URL=http://13.232.173.240
+export JENKINS_URL=http://x.x.x.x.x
 
 
 JENKINS_CRUMB=`curl "$JENKINS_URL/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,\":\",//crumb)"`

@@ -1,0 +1,22 @@
+pipeline{
+    agent any
+    parameters{
+        string(name:'myName', defaultValue:'this is default value', description:'this is string variable')
+    }
+    stages{
+        stage('Stage 1'){
+            steps{
+                sh '''
+                echo ${myName}
+                '''
+            }
+        }
+    }
+    post{
+        always{
+            
+            echo 'It will always run'
+        }
+    }
+}
+

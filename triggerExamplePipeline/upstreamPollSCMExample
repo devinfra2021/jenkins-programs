@@ -1,0 +1,16 @@
+pipeline{
+  agent any  
+  options{
+    buildDiscarder(logRotator(numToKeepStr: '1')
+  }
+  triggers{
+    upstream(upstreamProjects: 'pollSCMExample', threshold:hudson.model.Result.SUCCESS)
+  }
+  stages{
+    stage('upstreamPoll'){
+        steps{
+          echo 'deploye the pipeline'
+        }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+pipeline{
+	agent any
+	stages{
+		stage('inputExample'){
+		input{
+			message "should we continue?"
+			ok "yes, We should"
+			submitter "alice,bob"
+			parameters{
+			string(name:'PERSON', defaultValue:'Mr. Jenkins',description:'who should I say hello to')
+				}
+			}
+		steps{
+		echo "Hello,${PERSON}, nice to meet you"
+		}
+		}
+
+	}
+
+}

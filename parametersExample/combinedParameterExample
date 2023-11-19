@@ -20,9 +20,9 @@ pipeline{
                 echo "${params.textExample}"
                 echo "${params.stringExample}"
                 echo "${params.choiceExample}"
-                echo "${params.boolExample}"
-                
+                echo "${params.boolExample}"       
                 sh 'echo $passwordExample'
+		sh 'printenv'
 
             }
         }

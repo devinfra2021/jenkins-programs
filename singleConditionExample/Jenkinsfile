@@ -8,7 +8,7 @@ agent any
 		}
 		stage('Example Deploy'){
 			when {
-			branch 'tools'
+			branch 'yetjjtjrrjr'
 			}
 			steps{
 			echo 'after when condition stage execution'

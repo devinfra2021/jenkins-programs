@@ -1,0 +1,21 @@
+pipeline{
+	agent any
+	options{
+		buildDiscarder(logRotator(numToKeepStr: '1'))
+	}
+	parameters{
+	choice(name:'toolSelect',choices['apache-maven-3.0.1','apache-maven-3.9.4','apache-maven-3.9.5'], description:'select the tool need to install')
+	}
+	tools{
+	maven '${toolSelect}'
+	}
+	stages{
+		stage('toolBuildStage'){
+			steps{
+			sh '''
+			mvn --version
+			'''
+			}
+		}
+	}
+}

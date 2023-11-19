@@ -1,0 +1,30 @@
+pipeline{
+    agent any
+    environment{
+        CC="clang"
+    }
+    options{
+        buildDiscarder(logRotator(numToKeepStr: '1'))
+        timeout(time:1, unit:'HOURS')
+    }
+    parameters{
+        text(name:'textExample',defaultValue:'add your comment here',description:'this is text box')
+        string(name:'stringExample', defaultValue:'add your string here', description:'this is string box')
+        choice(name:'choiceExample', choices:['terra', 'non-cde np','cde-np','non-cde prod','cde-prod'], description:'Environments details')
+        booleanParam(name:'boolExample', defaultValue: false, description:'this is boolean details')
+        password(name:'passwordExample',defaultValue:'SECRET', description:'this password paramater')
+    }
+    stages{
+        stage('Parameter Example Stage'){
+            steps{
+                echo "${params.textExample}"
+                echo "${params.stringExample}"
+                echo "${params.choiceExample}"
+                echo "${params.boolExample}"
+                
+                sh 'echo $passwordExample'
+
+            }
+        }
+    }
+}

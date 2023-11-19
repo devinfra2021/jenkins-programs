@@ -3,9 +3,6 @@ pipeline{
 	options{
 		buildDiscarder(logRotator(numToKeepStr: '1'))
 	}
-	parameters{
-	choice(name:'toolSelect',choices['apache-maven-3.0.1','apache-maven-3.9.4','apache-maven-3.9.5'], description:'select the tool need to install')
-	}
 	tools{
 	maven 'apache-maven-3.9.5'
 	}

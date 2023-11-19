@@ -9,7 +9,7 @@ pipeline{
 	}
 	stage('Example Deploy'){
 	when {
-	branch 'whenCondition''
+	branch 'whenCondition'
 	}
 	steps{
 	echo 'after when condition stage execution'

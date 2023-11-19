@@ -1,0 +1,21 @@
+pipeline{
+agent any
+stages{
+	stage('example Build'){
+		steps{
+		echo "bild stage"
+		}
+	}
+
+	stage('Example Deploy'){
+		when {
+		branch 'production'
+		environment name:'DEPLOY_TO', value: 'production'
+		}
+		steps{
+			echo "deploying"
+		}
+	}
+
+}
+}
